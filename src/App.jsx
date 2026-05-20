@@ -1,4 +1,5 @@
 import ShoppingCard from './assets/img/shopping-card.png'
+import EmptyBasket from './assets/img/empty-basket.png'
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -36,6 +37,7 @@ export default function App() {
         </div>
         <div className="order-card">
           <h2>Your Cart (0)</h2>
+          <img src={EmptyBasket} alt="" />
         </div>
       </div>
     </>

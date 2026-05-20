@@ -83,3 +83,12 @@ h1 {
 .food-card .product-informations h4 {
   font-weight: 600;
 }
+
+.order-card{
+  margin-left: 24px;
+}
+
+.order-card h2{
+  margin-top: 24;
+  margin-left: 24;
+}
