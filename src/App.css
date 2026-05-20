@@ -1,18 +1,45 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: Red Hat Text;
 }
 
-h1{
+h1 {
   font-weight: 700;
   color: color/rose-900;
 
   margin-top: 24px;
   margin-left: 24px;
   margin-bottom: 32px;
+}
+
+.food-card {
+  margin-inline: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.food-card .product-informations{
+  margin-bottom: 24px;
+}
+.food-card .product-informations img {
+  width: 327px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.food-card .product-informations h5 {
+  font-size: 14px;
+  color: #87635A;
+}
+
+.food-card .product-informations h4 {
+  font-weight: 600;
 }
