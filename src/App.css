@@ -12,7 +12,7 @@ body {
   margin-inline: 24px;
 }
 
-h1 {
+.container .general-title h1 {
   font-weight: 700;
   color: color/rose-900;
 
@@ -21,21 +21,19 @@ h1 {
   margin-bottom: 32px;
 }
 
-.food-card {
-
-
+.container .food-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.food-card .product-informations {
+.container .food-card .product-informations {
   position: relative;
   margin-bottom: 24px;
 }
 
-.food-card .product-informations button {
+.container .food-card .product-informations button {
   font-size: 14px;
   font-weight: 600;
 
@@ -60,13 +58,13 @@ h1 {
   white-space: nowrap;
 }
 
-.food-card .product-informations button img {
+.container .food-card .product-informations button img {
   width: 20px;
   height: 20px;
   margin-bottom: 1px;
 }
 
-.food-card .product-informations img {
+.container .food-card .product-informations img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 16px;
@@ -75,20 +73,20 @@ h1 {
   display: block;
 }
 
-.food-card .product-informations h5 {
+.container .food-card .product-informations h5 {
   font-size: 14px;
   color: #87635A;
 }
 
-.food-card .product-informations h4 {
+.container .food-card .product-informations h4 {
   font-weight: 600;
 }
 
-.order-card{
+.container .order-card {
   margin-left: 24px;
 }
 
-.order-card h2{
+.container .order-card h2 {
   margin-top: 24;
   margin-left: 24;
 }
