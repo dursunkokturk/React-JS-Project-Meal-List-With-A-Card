@@ -112,3 +112,23 @@ body {
   color: #87635A;
   text-align: center;
 }
+
+
+@media(width>767px) {
+  .container .food-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .container .food-card .product-informations {
+    width: 213px;
+    gap: 24px;
+  }
+
+  .container .food-card .product-informations .image-wrapper .product-photo {
+    width: 213px;
+    height: 212px;
+  }
+}
