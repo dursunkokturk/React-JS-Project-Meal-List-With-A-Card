@@ -20,7 +20,7 @@ body {
 
 .container .general-title h1 {
   font-weight: 700;
-  color: color/rose-900;
+  color: #260F08;
 }
 
 .container .food-card {
@@ -143,5 +143,37 @@ body {
 
   .container .order-card .items-card img {
     padding: 16px 256px 30px 256px;
+  }
+}
+
+@media(width>1109px) {
+  .container{
+    margin: 88px 0px;
+  }
+  .container .general-title h1 {
+    margin-left: 34px;
+  }
+
+  .food-card-and-order-card {
+    display: flex;
+  }
+
+  .container .food-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .container .food-card .product-informations {
+    width: 250px;
+  }
+
+  .container .order-card {
+    width: 384px;
+  }
+
+  .container .order-card .items-card img {
+    padding: 16px 50px 30px 50px;
   }
 }
