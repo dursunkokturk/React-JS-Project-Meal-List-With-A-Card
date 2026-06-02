@@ -182,8 +182,13 @@ body {
 
   .container .food-card .product-informations .image-wrapper .product-photo {
     width: 100%;
-    /* kartın genişliğine uysun */
     height: 212px;
+  }
+
+  
+  .container .food-card .product-informations .image-wrapper button:hover {
+    background-color: #C73B0F;
+    cursor: pointer;
   }
 
   .container .order-card {
