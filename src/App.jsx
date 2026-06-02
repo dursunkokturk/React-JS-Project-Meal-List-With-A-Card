@@ -79,7 +79,7 @@ export default function App() {
                 <div className="image-wrapper">
                   <img src={recipe.image} className='product-photo' alt={recipe.name} />
                   <button onClick={() => addToCart(recipe)}>
-                    <img src={ShoppingCard} alt="" />
+                    <img src={ShoppingCard} alt="Shopping Card" />
                     Add to Cart
                   </button>
                 </div>
@@ -95,7 +95,7 @@ export default function App() {
             {/* Kosullu Guncelleme */}
             {cart.length === 0 ? (
               <div className="items-card">
-                <img src={EmptyBasket} alt="" />
+                <img src={EmptyBasket} alt="Empty Basket" />
                 <h5>Your added items will appear here</h5>
               </div>
             ) : (
