@@ -3,6 +3,13 @@ import EmptyBasket from './assets/img/empty-basket.png'
 import { useEffect, useState } from 'react'
 import './App.css'
 
+// Api Uzerinden Gelen Data'lar Arasinda Price Olmadigi Icin
+// Price Data'sini Kendimiz Uretiyoruz
+const generatePrice = (id) => {
+  const base = (id * 7 + 13) % 25;
+  return (base + 5 + 0.99).toFixed(2);
+};
+
 export default function App() {
 
   const [recipes, setRecipes] = useState([]);
@@ -11,7 +18,11 @@ export default function App() {
     fetch('https://dummyjson.com/recipes')
       .then(response => response.json())
       .then((data) => {
-        setRecipes(data.recipes);
+        const recipesWithPrice = data.recipes.map((recipe) => ({
+          ...recipe,
+          price: generatePrice(recipe.id)
+        }))
+        setRecipes(recipesWithPrice)
       })
     // .then(console.log);
   }, [])
@@ -35,6 +46,7 @@ export default function App() {
                 </div>
                 <h5>{recipe.cuisine}</h5>
                 <h4>{recipe.name}</h4>
+                <h4>${recipe.price}</h4>
               </div>
             ))}
           </div>
