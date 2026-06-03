@@ -208,7 +208,7 @@ export default function App() {
                     <div key={item.id} className="cart-item">
                       <div className="cart-item-info">
                         <p className='cart-item-name'>{item.name}</p>
-                        
+
                         <div className="cart-item-bottom">
                           <div className="cart-quantity-controls">
                             <span className='quantity-count'>{item.quantity}x</span>
@@ -217,11 +217,11 @@ export default function App() {
                         </div>
                       </div>
                       <button
-                          className='remove-button'
-                          onClick={()=>removeFromCart(item.id)}
-                        >
-                          x
-                        </button>
+                        className='remove-button'
+                        onClick={() => removeFromCart(item.id)}
+                      >
+                        x
+                      </button>
                     </div>
                   ))}
                 </div>
