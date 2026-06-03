@@ -44,7 +44,7 @@ body {
   background-color: #C73B0F;
 }
 
-.container .food-card .product-informations button {
+.container .food-card .product-informations .add-to-cart-button {
   font-size: 14px;
   font-weight: 600;
 
@@ -79,7 +79,6 @@ body {
   width: 100%;
   height: 212px;
   border-radius: 8px;
-  /* margin-bottom: 16px; */
 
   object-fit: cover;
   display: block;
@@ -293,6 +292,118 @@ body {
   background-color: #952C0B;
 }
 
+.add-to-cart-button,
+.quantity-controls {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Add to Cart butonu Mevcut Stili Koruyoruz */
+.add-to-cart-button {
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 160px;
+  height: 44px;
+  background-color: white;
+  border: 1px solid #AD8A85;
+  border-radius: 999px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #C73B0F;
+  color: white;
+}
+
+.add-to-cart-button:active {
+  background-color: #952C0B;
+  color: white;
+}
+
+.add-to-cart-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Quantity Controls — Add to Cart'in Yerini Alir */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 144px;
+  height: 44px;
+  background-color: #C73B0F;
+  border-radius: 999px;
+  padding: 0 12px;
+}
+
+.cart-quantity-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid white;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.cart-quantity-button:hover {
+  background-color: white;
+  color: #C73B0F;
+}
+
+.quantity-count {
+  color: #C73B0F;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cart-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-quantity-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #C73B0F;
+  background: white;
+  color: #C73B0F;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cart-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
 @media(width>767px) {
   .container .food-card {
     display: grid;
@@ -329,7 +440,8 @@ body {
   }
 
   .modal-overlay {
-    align-items: center;  /* ortalanır */
+    align-items: center;
+    /* ortalanır */
   }
 
   .modal {
@@ -346,10 +458,6 @@ body {
     margin: 88px auto;
     padding-inline: 88px;
   }
-
-  /* .container .general-title h1 {
-    margin-left: 34px;
-  } */
 
   .food-card-and-order-card {
     display: flex;
@@ -371,7 +479,6 @@ body {
     height: 212px;
   }
 
-
   .container .food-card .product-informations .image-wrapper button:hover {
     background-color: #C73B0F;
     cursor: pointer;
@@ -383,5 +490,15 @@ body {
 
   .container .order-card .items-card img {
     padding: 16px 50px 30px 50px;
+  }
+
+  .quantity-button:hover {
+    background-color: #C73B0F;
+    color: white;
+  }
+
+  .cart-quantity-button:hover {
+    background-color: #C73B0F;
+    color: white;
   }
 }

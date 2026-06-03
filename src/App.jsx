@@ -28,7 +28,7 @@ function OrderConfirmedModal({ cart, totalItems, onClose }) {
                 <span className="modal-item-quantity">{item.quantity}x</span>
                 <span className="modal-item-unit-price">@ ${item.price.toFixed(2)}</span>
               </div>
-                <span className="modal-item-total">${(item.price * item.quantity).toFixed(2)}</span>
+              <span className="modal-item-total">${(item.price * item.quantity).toFixed(2)}</span>
             </div>
           ))}
           <div className="modal-total">
@@ -88,6 +88,27 @@ export default function App() {
     })
   }
 
+  // Urun Sayisi Artirma
+  const increaseQuantity = (id) => {
+    setCart((prev) =>
+      prev.map((item) => item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    )
+  }
+
+  // Urun Sayisi Azaltma
+  const decreaseQuantity = (id) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === id)
+
+      if (existing.quantity === 1) {
+        return prev.filter((item) => item.id !== id)
+      }
+      return prev.map((item) => item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+      )
+    })
+  }
+
   // Sepetteki Toplam Urun Sayisi
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -123,20 +144,48 @@ export default function App() {
         </div>
         <div className="food-card-and-order-card">
           <div className="food-card">
-            {recipes.map((recipe) => (
-              <div key={recipe.id} className='product-informations'>
-                <div className="image-wrapper">
-                  <img src={recipe.image} className='product-photo' alt={recipe.name} />
-                  <button onClick={() => addToCart(recipe)}>
-                    <img src={ShoppingCard} alt="Shopping Card" />
-                    Add to Cart
-                  </button>
+            {recipes.map((recipe) => {
+
+              // Urun Sepette Var Mi Kontrolu Yapiyoruz
+              const cartItem = cart.find((item) => item.id === recipe.id)
+
+              return (
+                <div key={recipe.id} className='product-informations'>
+                  <div className="image-wrapper">
+                    <img src={recipe.image} className='product-photo' alt={recipe.name} />
+
+                    {/* Urun Sepette Yoksa Ekliyoruz
+                        Urun Sepette Varsa Adet Artiriyoruz */}
+                    {!cartItem ? (
+                      <button className='add-to-cart-button' onClick={() => addToCart(recipe)}>
+                        <img src={ShoppingCard} alt="Shopping Card" />
+                        Add to Cart
+                      </button>
+                    ) : (
+                      <div className="quantity-controls">
+                        <button
+                          className='cart-quantity-button'
+                          onClick={() => decreaseQuantity(recipe.id)}
+                        >
+                          -
+                        </button>
+                        <span className="quantity-count">{cartItem.quantity}</span>
+                        <button
+                          className='cart-quantity-button'
+                          onClick={() => increaseQuantity(recipe.id)}
+                        >
+                          +
+                        </button>
+                      </div>
+                    )}
+
+                  </div>
+                  <h5>{recipe.cuisine}</h5>
+                  <h4>{recipe.name}</h4>
+                  <h4>${recipe.price}</h4>
                 </div>
-                <h5>{recipe.cuisine}</h5>
-                <h4>{recipe.name}</h4>
-                <h4>${recipe.price}</h4>
-              </div>
-            ))}
+              )
+            })}
           </div>
           <div className="order-card">
             <h2>Your Cart ({totalItems})</h2>
@@ -152,17 +201,13 @@ export default function App() {
                 <div className="cart-items">
                   {cart.map((item) => (
                     <div key={item.id} className="cart-item">
-                      {/* <img
-                        src={item.image}
-                        alt={item.name}
-                        className='cart-item-img'
-                      /> */}
                       <div className="cart-item-info">
                         <p className='cart-item-name'>{item.name}</p>
-                        {/* <span className='cart-item-cuisine'>{item.cuisine}</span> */}
                         <div className="cart-item-bottom">
-                          <span className='cart-item-quantity'>{item.quantity}x</span>
-                          <span className='cart-item-price'>@ {(item.price * item.quantity).toFixed(2)}</span>
+                          <div className="cart-quantity-controls">
+                            <span className='quantity-count'>{item.quantity}x</span>
+                          </div>
+                          <span className='cart-item-price'>@ ${(item.price * item.quantity).toFixed(2)}</span>
                         </div>
                       </div>
                     </div>
