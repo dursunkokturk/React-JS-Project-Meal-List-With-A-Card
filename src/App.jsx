@@ -45,11 +45,18 @@ function OrderConfirmedModal({ cart, totalItems, onClose }) {
 export default function App() {
 
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
   const [recipes, setRecipes] = useState([]);
   const [cart, setCart] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
+  // fetch Islemini Yonetmek Icin 
+  // useEffect Icinden Cikarip 
+  // Fonksiyon Haline Getiriyoruz
+  const fetchRecipes = () => {
+    setLoading(true);
+    setError(null);
+
     fetch('https://dummyjson.com/recipes')
       .then(response => response.json())
       .then((data) => {
@@ -65,6 +72,10 @@ export default function App() {
         setLoading(false)
       });
     // .then(console.log);
+  }
+
+  useEffect(() => {
+    fetchRecipes();
   }, [])
 
   // Sepete Urun Ekleme
@@ -128,10 +139,26 @@ export default function App() {
   }
   if (loading) {
     return (
-      <div className="loading">
+      <div className="status-screen">
+        <div className="spinner"></div>
         Loading...
       </div>
     );
+  }
+
+  if (error) {
+    return (
+      <div className="status-screen">
+        <p className="error-icon">⚠️</p>
+        <p className="error-message">Created An Error:{error}</p>
+        <button
+          className='retry-button'
+          onClick={fetchRecipes}
+        >
+          Try Again
+        </button>
+      </div>
+    )
   }
 
   return (
