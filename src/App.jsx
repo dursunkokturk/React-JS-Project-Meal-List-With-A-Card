@@ -143,6 +143,7 @@ export default function App() {
 
   const handleNewOrder=()=>{
     setShowThankyou(false);
+    fetchRecipes()
   }
 
   if (loading) {
