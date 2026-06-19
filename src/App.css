@@ -83,9 +83,6 @@ body {
 .container .food-card {
   display: grid;
   grid-template-columns: 1fr;
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: stretch; */
 }
 
 .container .food-card .product-informations {
@@ -669,17 +666,6 @@ body {
   .food-card-and-order-card {
     display: flex;
   }
-
-  /* .container .food-card {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 24px;
-  } */
-
-  /* .container .food-card .product-informations {
-    width: calc((100% - 48px) / 3);
-  } */
 
   .container .food-card .product-informations .image-wrapper {
     height: 212px;
